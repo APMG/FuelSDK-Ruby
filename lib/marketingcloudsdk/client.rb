@@ -148,7 +148,7 @@ module MarketingCloudSDK
 		def AddSubscriberToList(email, ids, subscriber_key = nil)
 			s = MarketingCloudSDK::Subscriber.new
 			s.client = self
-			lists = ids.collect{|id| {'ID' => id}}
+			lists = ids.collect{|id| {'ID' => id, 'Status' => 'Active'}}
 			s.properties = {"EmailAddress" => email, "Lists" => lists}
 			p s.properties 
 			s.properties['SubscriberKey'] = subscriber_key if subscriber_key
